@@ -9,7 +9,6 @@ $current_final_ar = array();
 if(isset($_SESSION['stored'])){
 	$stored_ar = $_SESSION['stored'];
 	$temp = $stored_ar;
-	//$current_final_ar = $temp;
 	$current_final_ar = $input_ar;
 	$_SESSION['stored'][] = $current_final_ar;
 }else
@@ -17,14 +16,6 @@ if(isset($_SESSION['stored'])){
 $current_final_ar[] = $input_ar;
 $_SESSION['stored'] = 	$current_final_ar;
 }
-/*echo '<pre>';
-print_r($_SESSION['stored']);
-echo '</pre>';*/
-//$txt = "";
-/*fwrite($myfile, $txt);
-$txt = "\n";
-fwrite($myfile, $txt);
-fclose($myfile);*/
 
 if(isset($_SESSION['stored']) && !empty($_SESSION['stored'])){
 	header("Location:bb.php");
@@ -51,6 +42,6 @@ if(isset($_SESSION['stored']) && !empty($_SESSION['stored'])){
 .formDiv{width:60%;border:1px solid #000;padding:30px;height:200px;}
 .btnSubmit input {
     margin: 10px 52px 0 0;
-    float: right;
+    float: left;
 }
 </style>

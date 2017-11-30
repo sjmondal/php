@@ -11,13 +11,9 @@ foreach($ses_ar as $k=>$v) {
     $sort['age'][$k] = $v['age'];
 }
 	if($_POST['sort_by']=='age' && $_POST['sort_dir']=='asc'){
-	//sort($_SESSION['stored']);
-	//$_SESSION['stored'] = $_SESSION['stored'];
 	array_multisort($sort['age'], SORT_ASC,$sort['age'], SORT_ASC,$ses_ar);
 	}
 	elseif($_POST['sort_by']=='age' && $_POST['sort_dir']=='desc'){
-	//sort($_SESSION['stored']);
-	//$_SESSION['stored'] = $_SESSION['stored'];
 	array_multisort($sort['age'], SORT_DESC,$sort['age'], SORT_DESC,$ses_ar);
 	}
 	
@@ -35,10 +31,14 @@ if(isset($_SESSION['stored']) && !empty($_SESSION['stored'])){
 	?>
      <form id="listform" name="list" action="" method="post">
     <table>
-    <tr><th align="center" width="50%">Name<a href="javascript:void(0);" onClick="submitForm('name','asc');">
+    <tr>
+	<th align="center" width="50%">Name
+	<a href="javascript:void(0);" onClick="submitForm('name','asc');">
     <i class="fa fa-arrow-down" aria-hidden="true"></i>
     </a>
-    <a href="javascript:void(0);" onClick="submitForm('name','desc');"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></th><th width="50%">Age<a href="javascript:void(0);" onClick="submitForm('age','asc');"><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+    <a href="javascript:void(0);" onClick="submitForm('name','desc');"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+	</th>
+	<th width="50%">Age<a href="javascript:void(0);" onClick="submitForm('age','asc');"><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
     <a href="javascript:void(0);" onClick="submitForm('age','desc');"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></th></tr>
 	<?php
 	foreach($_SESSION['stored'] as $index=>$eachVal)
