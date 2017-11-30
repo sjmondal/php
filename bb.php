@@ -1,15 +1,13 @@
 <title>List of the entries</title>
 <?php
 session_start();
-/*echo '<pre>';
-print_r($_SESSION['stored']);
-echo '</pre>';*/
 if(isset($_POST['action'])){
 	$ses_ar = $_SESSION['stored'];
 	$sort = array();
 foreach($ses_ar as $k=>$v) {
     $sort['name'][$k] = $v['name'];
     $sort['age'][$k] = $v['age'];
+	$sort['name'][$k] = strtolower($v['name']);
 }
 	if($_POST['sort_by']=='age' && $_POST['sort_dir']=='asc'){
 	array_multisort($sort['age'], SORT_ASC,$sort['age'], SORT_ASC,$ses_ar);
