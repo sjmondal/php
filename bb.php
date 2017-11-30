@@ -1,3 +1,4 @@
+<title>List of the entries</title>
 <?php
 session_start();
 /*echo '<pre>';

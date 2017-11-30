@@ -1,3 +1,4 @@
+<title>Enter name and age</title>
 <?php
 session_start();
 //unset($_SESSION['stored']);
