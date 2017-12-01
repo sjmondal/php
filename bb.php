@@ -5,24 +5,35 @@ if(isset($_POST['action'])){
 	$ses_ar = $_SESSION['stored'];
 	$sort = array();
 foreach($ses_ar as $k=>$v) {
-    $sort['name'][$k] = $v['name'];
+   // $sort['name'][$k] = $v['name'];
     $sort['age'][$k] = $v['age'];
 	$sort['name'][$k] = strtolower($v['name']);
 }
-	if($_POST['sort_by']=='age' && $_POST['sort_dir']=='asc'){
-	array_multisort($sort['age'], SORT_ASC,$sort['age'], SORT_ASC,$ses_ar);
+	switch($_POST['sort_by']){
+		case "age":
+		{
+			switch($_POST['sort_dir']){
+				case "asc":
+					array_multisort($sort['age'], SORT_ASC,$sort['age'], SORT_ASC,$ses_ar);
+				break;
+				case "desc":
+					array_multisort($sort['age'], SORT_DESC,$sort['age'], SORT_DESC,$ses_ar);
+				break;
+			}
+		}
+		break;
+		case "name":
+		{
+			switch($_POST['sort_dir']){
+				case "asc":
+					array_multisort($sort['name'], SORT_ASC,$sort['name'], SORT_ASC,$ses_ar);
+				break;
+				case "desc":
+					array_multisort($sort['name'], SORT_DESC,$sort['name'], SORT_DESC,$ses_ar);
+				break;
+			}
+		}
 	}
-	elseif($_POST['sort_by']=='age' && $_POST['sort_dir']=='desc'){
-	array_multisort($sort['age'], SORT_DESC,$sort['age'], SORT_DESC,$ses_ar);
-	}
-	
-	elseif($_POST['sort_by']=='name' && $_POST['sort_dir']=='asc'){
-	array_multisort($sort['name'], SORT_ASC,$sort['name'], SORT_ASC,$ses_ar);
-	}
-	elseif($_POST['sort_by']=='name' && $_POST['sort_dir']=='desc'){
-	array_multisort($sort['name'], SORT_DESC,$sort['name'], SORT_DESC,$ses_ar);
-	}
-	
 $_SESSION['stored'] = $ses_ar;
 }
 

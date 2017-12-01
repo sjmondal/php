@@ -3,7 +3,6 @@
 session_start();
 //unset($_SESSION['stored']);
 if(isset($_POST['submit'])){
-$myfile = fopen("bb.php", "a") or die("Unable to open file!");
 $stored_ar = array();
 $input_ar = array('name'=>$_POST['name'],'age'=>$_POST['age']);
 $current_final_ar = array();
@@ -23,7 +22,6 @@ if(isset($_SESSION['stored']) && !empty($_SESSION['stored'])){
 }
 }
 
-
 ?>
 <div class="formDiv">
 <form action='' method="post">
@@ -36,6 +34,7 @@ if(isset($_SESSION['stored']) && !empty($_SESSION['stored'])){
 </div>
 </div>
 <div class="btnSubmit" style="clear:both"><input type="submit" name="submit" value="Submit"></div>
+<div class="btnSubmit"><input type="button" name="submit" onClick="window.location.href='bb.php';" value="List"></div>
 </form>
 </div>
 <style>
