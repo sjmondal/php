@@ -2,7 +2,8 @@
 <?php
 $my_array = array(16,22,50,6,1,1,9,20,4,7,12,3,15,20,43);
 
-function array_max($arr){
+function array_max($arr)
+{
 	$temp = '';
 foreach($arr as $index=>$elem){
 	if($temp==''){
