@@ -22,6 +22,8 @@ public function image_resize($fileResource,$new_name,$thumb_path,$new_width='',$
 	switch($mimeType){
 		case 'image/png':
 		$image = imagecreatefrompng($fileResource);
+		imagealphablending( $image_p, false );
+		imagesavealpha( $image_p, true );
 		imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width_orig, $height_orig);
 		$res = imagepng($image_p, $thumb_path.$new_name, 9);
 		break;
