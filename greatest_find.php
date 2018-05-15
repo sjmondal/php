@@ -7,9 +7,9 @@ function array_max($arr)
 	$temp = '';
 foreach($arr as $index=>$elem){
 	if($temp==''){
-		if($elem>=$my_array[($index+1)])
+		if($elem>=$arr[($index+1)])
 			$temp = $elem;
-		else $temp = $my_array[($index+1)];
+		else $temp = $arr[($index+1)];
 		}
 		else{
 		if($elem>=$temp)
